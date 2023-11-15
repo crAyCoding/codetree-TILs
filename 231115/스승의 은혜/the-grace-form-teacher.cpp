@@ -11,6 +11,9 @@ int main() {
     {
         int p,s;
         cin >> p >> s;
+        if (answer > 0) {
+            continue;
+        }
         maxNum = maxNum < p ? p : maxNum;
         sum = sum + p + s;
         if(sum > B) {
