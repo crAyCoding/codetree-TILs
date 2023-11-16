@@ -7,7 +7,7 @@ using namespace std;
 int main() {
     string s;
     cin >> s;
-    long long n = 0, c = 1;
+    unsigned long long n = 0, c = 1;
     for(int i=s.length()-1;i>=0;i--) {
         n += (int)(s[i] - 48) * c;
         c *= 2;
