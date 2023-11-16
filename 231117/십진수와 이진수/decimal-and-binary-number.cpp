@@ -5,21 +5,23 @@
 using namespace std;
 
 int main() {
-    string s;
+    string s,result;
     cin >> s;
-    unsigned long long n = 0, c = 1;
-    for(int i=s.length()-1;i>=0;i--) {
-        n += (int)(s[i] - 48) * c;
-        c *= 2;
+    int slen = s.length();
+    reverse(s.begin(),s.end());
+    result = s + "0000";
+    for(int i=0;i<slen;i++) {
+        if(s[i] == '1') {
+            result[i+4] += 1;
+        }
     }
-    n *= 17;
-    vector<int> v;
-    while(n>0) {
-        v.push_back(n%2);
-        n /= 2;
+    for(int i=0;i<result.length();i++) {
+        if(result[i] >= '2') {
+            result[i+1] += 1;
+            result[i] -= 2;
+        }
     }
-    for(int i=v.size()-1;i>=0;i--) {
-        cout << v[i];
-    }
+    reverse(result.begin(),result.end());
+    cout << result;
     return 0;
 }
