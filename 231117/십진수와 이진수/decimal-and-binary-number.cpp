@@ -17,7 +17,7 @@ int main() {
     }
     for(int i=0;i<result.length();i++) {
         if(result[i] >= '2') {
-            if(i == result.length() - 1) result += "1";
+            if(i == result.length() - 1) result += "0";
             result[i+1] += 1;
             result[i] -= 2;
         }
