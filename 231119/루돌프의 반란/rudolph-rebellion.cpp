@@ -115,6 +115,8 @@ pair<int,int> santaDirection(santa s) {
     int dc = cD < 0 ? 1 : -1;
     int i = s.number - 1;
     if(rD != 0 && cD != 0) {
+        if(abs(rD) > abs(cD) && !isSanta(i,dr,0)) return make_pair(dr,0);
+        if(abs(cD) > abs(rD) && !isSanta(i,0,dc)) return make_pair(0,dc);
         if(dr == -1 && !isSanta(i,dr,0)) return make_pair(dr,0);
         if(dc == 1 && !isSanta(i,0,dc)) return make_pair(0,dc);
         if(dr == 1 && !isSanta(i,dr,0)) return make_pair(dr,0);
@@ -194,10 +196,6 @@ int main() {
         santaMove();
         if(isGameOver()) break;
         endTurn();
-        for(int i=0;i<santaVec.size();i++) {
-            //cout << santaVec[i].score << " ";
-        }
-        //cout << endl;
     }
     for(int i=0;i<santaVec.size();i++) {
         cout << santaVec[i].score;
