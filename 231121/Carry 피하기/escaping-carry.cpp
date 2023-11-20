@@ -12,25 +12,10 @@ bool checkCarry(int a, int b) {
     }
 }
 
-bool checkNine(int num) {
-    while(num>0) {
-        if(num%10 == 9) return true;
-        num /= 10;
-        if(num == 0) return false;
-    }
-}
-
 int max_answer = -1;
 
 void find(int num,vector<int> v,int i,int cnt) {
     max_answer = max_answer > cnt ? max_answer : cnt;
-    if(i == v.size()) {
-        max_answer = max_answer > cnt + 1 ? max_answer : cnt + 1;
-        return;
-    }
-    if(checkNine(num)) {
-        return;
-    }
     for(int j=i;j<v.size();j++) {
         if(checkCarry(num,v[j])) {
             find(num,v,j+1,cnt);
