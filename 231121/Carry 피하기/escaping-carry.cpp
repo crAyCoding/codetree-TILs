@@ -23,8 +23,8 @@ bool checkNine(int num) {
 int max_answer = -1;
 
 void find(int num,vector<int> v,int i,int cnt) {
+    max_answer = max_answer = max_answer > cnt ? max_answer : cnt;
     if(checkNine(num)) {
-        max_answer = max_answer = max_answer > cnt ? max_answer : cnt;
         return;
     }
     for(int j=i;j<v.size();j++) {
