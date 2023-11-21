@@ -1,20 +1,21 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 int main() {
-    int n,min_num = 1e9,max_num = -1;
+    int n;
     cin >> n;
     vector<int> v(n);
     for(int i=0;i<n;i++) 
     {
         cin >> v[i];
-        min_num = v[i] < min_num ? v[i] : min_num;
-        max_num = v[i] > max_num ? v[i] : max_num;
     }
+    vector<int> vv = v;
+    vv.erase(unique(vv.begin(), vv.end()), vv.end());
     int result = 0;
-    for(int i=min_num;i<=max_num;i++) {
+    for(int i : vv) {
         for(int j=0;j<n;j++) {
             int temp = v[j], cnt = 1;
             if(temp == i) continue;
