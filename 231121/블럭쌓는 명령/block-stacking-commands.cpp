@@ -11,9 +11,20 @@ int main() {
     vector<int> result(n);
     for(int i=0;i<k;i++) {
         cin >> a[i] >> b[i];
-        for(int j = a[i]-1;j<b[i];j++) {
-            result[j]++;
+    }
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
+    int ai = 1, bi = 0, cnt = 0;
+    for(int i=1;i<=n;i++) {
+        if(b[bi] == i) {
+            bi++;
+            cnt--;
         }
+        if(a[ai] == i) {
+            ai++;
+            cnt++;
+        }
+        result[i-1] = cnt;
     }
     sort(result.begin(),result.end());
     cout << result[n/2];
