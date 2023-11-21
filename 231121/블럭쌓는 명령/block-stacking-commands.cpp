@@ -14,13 +14,13 @@ int main() {
     }
     sort(a.begin(),a.end());
     sort(b.begin(),b.end());
-    int ai = 1, bi = 0, cnt = 0;
+    int ai = 0, bi = 0, cnt = 0;
     for(int i=1;i<=n;i++) {
-        if(b[bi] == i) {
+        while(bi < k && b[bi] == i) {
             bi++;
             cnt--;
         }
-        if(a[ai] == i) {
+        while(ai < k && a[ai] == i) {
             ai++;
             cnt++;
         }
