@@ -16,15 +16,15 @@ int main() {
     sort(b.begin(),b.end());
     int ai = 0, bi = 0, cnt = 0;
     for(int i=1;i<=n;i++) {
-        while(bi < k && b[bi] == i) {
-            bi++;
-            cnt--;
-        }
         while(ai < k && a[ai] == i) {
             ai++;
             cnt++;
         }
         result[i-1] = cnt;
+        while(bi < k && b[bi] == i) {
+            bi++;
+            cnt--;
+        }
     }
     sort(result.begin(),result.end());
     cout << result[n/2];
