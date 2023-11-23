@@ -13,10 +13,10 @@ int main() {
     for(int i=0;i<n-2;i++) {
         while(v[i] - v[i+1] >= v[i+1] - v[i+2]) {
             i++;
-            if(i == n-2) break;
+            if(i == n-3) break;
         }
         answer++;
-        if(i==n-2 && v[i]-v[i+1] < v[i+1] - v[i+2]) answer++;
+        if(i==n-3 && v[i]-v[i+1] < v[i+1] - v[i+2]) answer++;
     }
     cout << answer;
     return 0;
