@@ -9,14 +9,16 @@ int main() {
     cin >> n;
     vector<int> v(n);
     for(int i=0;i<n;i++) cin >> v[i];
-    sort(v.begin(),v.end(),greater<int>());
+    sort(v.begin(),v.end());
     for(int i=0;i<n-2;i++) {
         while(v[i] - v[i+1] >= v[i+1] - v[i+2]) {
+            if(i==n-3) {
+                answer++;
+                break;
+            }
             i++;
-            if(i == n-3) break;
         }
         answer++;
-        if(i==n-3 && v[i]-v[i+1] < v[i+1] - v[i+2]) answer++;
     }
     cout << answer;
     return 0;
