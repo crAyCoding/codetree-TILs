@@ -24,8 +24,9 @@ int main() {
         if(flag) answer++;
         if(i==n-1) break;
         float fp = (float)(dots[i+1] + dots[i]) / 2;
+        int temp2 = i+1 < n-i-1 ? i+1 : n-i-1;
         bool flag2 = true;
-        for(int j=0;j<temp;j++) {
+        for(int j=0;j<temp2;j++) {
             float fpl = fp - dots[i-j];
             float fpr = dots[i+j+1] - fp;
             if(fpl != fpr) {
