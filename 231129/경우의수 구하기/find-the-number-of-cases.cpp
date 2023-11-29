@@ -6,13 +6,9 @@ int main() {
     int n,m;
     cin >> n >> m;
     int j=m,k=min(n,m-n);
-    double result = 1.0;
-    while(k>0) {
-        result *= j;
-        result /= (double)k;
-        j--;
-        k--;
-    }
-    cout << (int)result;
+    long long int result = 1;
+    for(int i=0;i<k;i++) result *= j--;
+    for(int i=1;i<=k;i++) result /= i;
+    cout << result;
     return 0;
 }
